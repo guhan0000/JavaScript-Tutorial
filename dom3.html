@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dark {
+        color: white;
+        background-color: black;
+      }
+      .light {
+        color: black;
+        background-color: rgb(214, 200, 200);
+      }
+      .pstyle2 {
+        color: black;
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="p1" class="dark light">This is a paragraph</p>
+    <script>
+      //   document.getElementById("p1").classList.add("pstyle");
+      //   document.getElementById("p1").classList.remove("pstyle2", "pstyle");
+      //   document.getElementById("p1").classList.toggle("light");
+      //   document.getElementById("p1").classList.toggle("dark"); // toggle add if it doesnt exist and remove if the class exists
+      let p1 = document.getElementById("p1");
+      console.log(p1.classList.contains("dark")); // checks if a class is present in that element
+      console.log(p1.classList.contains("light"));
+      let pId = p1.getAttribute("id");
+      console.log(pId);
+      p1.setAttribute("style", "color:yellow");
+      console.log(p1.getAttribute("style"));
+      console.log(p1.hasAttribute("style"));
+      p1.removeAttribute("style");
+      console.log(p1.hasAttribute("style"));
+    </script>
+  </body>
+</html>

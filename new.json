@@ -1,0 +1,9 @@
+{
+  "name": "Guhan Muthuramalingam",
+  "age": 23,
+  "isSingle": true,
+  "skills": ["Java", "SQL"],
+  "address": { "dist": "pdkt", "pin": 614630 },
+  {}
+}
+

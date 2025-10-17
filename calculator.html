@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btns {
+        display: flex;
+        margin-top: 20px;
+      }
+      button {
+        padding: 10px;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <span>Number1</span> <input type="text" id="i1" />
+    <br />
+    <span>Number2</span> <input type="text" id="i2" /> <br />
+    <div class="btns">
+      <button id="b1">+</button><br /><button id="b2">-</button><br /><button
+        id="b3"
+      >
+        *</button
+      ><br /><button id="b4">/</button>
+    </div>
+    <br /><span>Result</span>
+    <!-- <p id="result"></p> -->
+    <input type="text" id="result" disabled />
+    <script>
+      let b1 = document.getElementById("b1");
+      let b2 = document.getElementById("b2");
+      let b3 = document.getElementById("b3");
+      let b4 = document.getElementById("b4");
+      let result = document.getElementById("result");
+      b1.addEventListener("click", () => {
+        let ip1 = Number(document.getElementById("i1").value);
+        let ip2 = Number(document.getElementById("i2").value);
+        result.value = ip1 + ip2;
+      });
+      b2.addEventListener("click", () => {
+        let ip1 = Number(document.getElementById("i1").value);
+        let ip2 = Number(document.getElementById("i2").value);
+        result.value = ip1 - ip2;
+      });
+      b3.addEventListener("click", () => {
+        let ip1 = Number(document.getElementById("i1").value);
+        let ip2 = Number(document.getElementById("i2").value);
+        result.value = ip1 * ip2;
+      });
+      b4.addEventListener("click", () => {
+        let ip1 = Number(document.getElementById("i1").value);
+        let ip2 = Number(document.getElementById("i2").value);
+        result.value = ip1 / ip2;
+      });
+    </script>
+  </body>
+</html>
