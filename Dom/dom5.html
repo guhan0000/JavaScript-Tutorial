@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="div1">
+      <a href="#">home</a>
+      <span id="sp1">span1</span>
+    </div>
+    <ul id="fruits">
+      <li>Apple</li>
+      <li>Banana</li>
+    </ul>
+  </body>
+  <script>
+    let a = document.createElement("a");
+    document.getElementById("sp1").appendChild(a);
+    a.innerText = "lin";
+    let list = document.getElementById("fruits");
+    let li = document.createElement("li");
+    list.append(li);
+    li.innerText = "Mango";
+    // list.removeChild(li); removes last li
+    // console.log(list.children[0]);
+    list.replaceChild(a, list.children[0]);
+    //insert before
+
+    let li2 = document.createElement("li");
+
+    let li3 = document.createElement("li");
+    li2.innerText = "Mango";
+    li3.innerText = "Papaya";
+    let li4 = document.createElement("li");
+    li4.innerText = "Guava";
+    list.append(li2, li3);
+    list.replaceChild(li2, list.children[0]);
+    console.log(document.children);
+    list.prepend(document.createElement("li"));
+    list.children[0].innerText = "JackFruit";
+    list.prepend("Fruits List");
+    list.insertBefore(li4, list.children[0]);
+  </script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    /> -->
+  </head>
+  <body>
+    <div class="container bg-primary">
+      <h1 id="head1" class="head1">DOM STRUCTURE METHODS</h1>
+      <span id="sp1"></span>
+    </div>
+    <div id="div2"></div>
+
+    <script>
+      let sp = document.getElementById("sp1");
+      // console.log(document.body.childNodes[1]);
+      let h2 = document.createElement("h2");
+      let a = document.createElement("a");
+      a.innerHTML = "hello";
+      a.href = "#";
+      //   sp.append(a);
+      document.body.appendChild(h2).innerText = "Hello Man What is up";
+      let bt1 = document.createElement("button");
+      bt1.innerText = "signup";
+      sp.append(bt1, a);
+
+      let ul = document.createElement("ul");
+      document.querySelector("div").append(ul);
+      let li = document.createElement("li");
+      ul.append(li);
+      li.innerText = "guhan";
+      let ip = document.createElement("input");
+      ip.type = "text";
+      // document.body.append(ip);
+      document.insertBefore(ip, sp);
+      sp.style.color = red;
+
+      // console.log(document.querySelectorAll("div"));
+    </script>
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script> -->
+  </body>
+</html>
