@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="i1" />
+    <button id="btn1">show</button>
+    <h1 id="head1"></h1>
+    <script>
+      let text = document.getElementById("i1");
+      let btn = document.getElementById("btn1");
+      let head1 = document.getElementById("head1");
+
+      btn.addEventListener("click", () => {
+        head1.innerHTML = text.value;
+      });
+      console.log(text);
+    </script>
+  </body>
+</html>
