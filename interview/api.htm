@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="d1"></div>
+    <button id="btn1">get</button>
+    <button id="btn2">add data</button>
+
+    <script>
+      const BASE_URL = "https://dummyjson.com";
+      let div1 = document.getElementById("d1");
+      let btn1 = document.getElementById("btn1");
+      btn1.addEventListener("click", getUsers);
+      let btn2 = document.getElementById("btn2");
+      btn2.addEventListener("click", addUser);
+      async function getUsers() {
+        const response = await fetch(`${BASE_URL}/users`);
+        const data = await response.json();
+        // console.log(data.users);
+        data.users.forEach((user) => {
+          // div1.innerHTML += `<p>${user.firstName}</p>`;
+          // console.log(user.firstName);
+          div1.innerText += user.firstName + "\n";
+        });
+      }
+
+      // getUsers();
+      async function addUser() {
+        const response = await fetch(
+          "http://localhost:6969/api/mba/movie/add",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              movieName: "Se7en",
+              language: "English",
+              ticketPrice: 120,
+              availableSeats: 100,
+            }),
+          },
+        );
+        const data = await response.json();
+        console.log(data);
+      }
+    </script>
+  </body>
+</html>

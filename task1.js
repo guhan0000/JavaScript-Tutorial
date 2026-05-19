@@ -42,7 +42,7 @@ function findMax(arr) {
   return max;
 }
 console.log(findMax([4, 1, 9, 3, 7]));
-
+ 
 function removeDuplicates(arr) {
   let res = [];
   for (let i = 0; i < arr.length; i++) {
@@ -111,3 +111,11 @@ const removedDuplicatesArray = function (arr) {
 };
 console.log(removeDuplicates([1, 8, 5, 1, 2, 8]).sort());
 
+
+let arr=[1,3,5];
+let sum=0;
+for(let i=0;i<arr.length;i++)
+{
+  sum+=arr[i];
+}
+console.log(sum);
