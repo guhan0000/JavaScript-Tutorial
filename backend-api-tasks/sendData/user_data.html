@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+      }
+      input {
+        padding: 5px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="dataForm">
+      <input
+        type="text"
+        id="custName"
+        name="custName"
+        placeholder="Enter your Name"
+      />
+      <input type="email" name="email" id="email" placeholder="Enter Email" />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter password"
+      />
+      <input type="tel" name="phone" id="phone" placeholder="Eneter Phone" />
+      <input type="submit" />
+    </form>
+    <script>
+      const BASE_URL = "http://localhost:7901/api/customer";
+      document
+        .getElementById("dataForm")
+        .addEventListener("click", async (e) => {
+          e.preventDefault();
+          const customerData = {
+            custName: document.getElementById("custName").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+            phone: document.getElementById("phone").value,
+          };
+
+          try {
+            const response = await fetch(`${BASE_URL}/register`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(customerData),
+            });
+            const data = response.json();
+            console.log(data);
+          } catch (error) {
+            console.log("Error: ", error);
+          }
+        });
+    </script>
+  </body>
+</html>
