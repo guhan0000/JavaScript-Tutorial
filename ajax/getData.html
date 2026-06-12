@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Ajax Example</h1>
+    <div id="d1"></div>
+    <button onclick="loadData()">get</button>
+    <button onclick="clearData()">clear</button>
+    <script>
+      const clearData = () => {
+        document.getElementById("d1").innerText = "";
+        console.log("cleared");
+      };
+      function loadData() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = () => {
+          if (xhttp.readyState == 4 && xhttp.status == 200) {
+            let movieList = JSON.parse(xhttp.responseText);
+            console.log(movieList);
+            for (let i = 0; i < movieList.length; i++) {
+              document.getElementById("d1").innerText +=
+                movieList[i].movieName + "\n";
+            }
+          }
+        };
+        xhttp.open("GET", "http://localhost:6969/api/mba/movie/ll", true);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>

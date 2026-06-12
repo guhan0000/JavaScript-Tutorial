@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Ajax Post Data</h1>
+    <div id="d1"></div>
+    <button onclick="addMovie()">Add</button>
+    <script>
+      let movie = {
+        movieName: "SpiderMan",
+        language: "English",
+        duration: 110,
+        posterUr: "test.jpg",
+        genre: ["Action", "Comic", "Super Hero"],
+        description: "Your Friendly Neighbourhood",
+        releaseDate: "2018-01-01",
+        rating: 9.2,
+      };
+      function addMovie() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = () => {
+          if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+            let movieData = JSON.parse(xhttp.responseText);
+            document.getElementById("d1").innerHTML =
+              `<h1>Movie Name:${movieData.movieName}</h1><h1>Movie Language:${movieData.language}</h1><h1>Movie duration:${movieData.duration}</h1>`;
+          }
+        };
+        xhttp.open("POST", "http://localhost:6969/api/mba/movie/add", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(movie));
+      }
+    </script>
+  </body>
+</html>
